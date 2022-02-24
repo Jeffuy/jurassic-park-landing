@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: rgb(1, 13, 31);
+    background-color: rgb(1, 13, 31);
 }
 
 main {
@@ -13,13 +13,14 @@ main {
 
 .hero {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(300px, 2fr) 3fr;
     grid-auto-rows: 550px;
     border-bottom: 1px solid #ddd;
 }
 
 .info {
     align-self: center;
+
 }
 
 .info-title {
@@ -39,9 +40,14 @@ main {
     border: none;
     border-radius: 20px;
     color: rgb(92, 92, 92);
-    background-color: #180377;
+    background-color: #eefc2a;
     font-weight: bolder;
     padding: 12px 24px;
+	opacity: 0.5;
+}
+
+.info-button:hover {
+	opacity: 1;
 }
 
 .hero-image {
@@ -56,7 +62,7 @@ main {
 
 .dinosaurs-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 200px));
+    grid-template-columns: repeat(4, minmax(75px, 200px));
     grid-auto-rows: 1fr;
     gap: 25px;
     justify-content: center;
@@ -74,7 +80,11 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid #ddd;
+	opacity: 0.7;
+}
+
+.dinosaurs-item:hover {
+	opacity: 1;
 }
 
 .dinosaurs-item__big {
@@ -82,26 +92,100 @@ main {
 }
 
 .tours {
-	margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 .tours-title {
-	font-size: 2rem;
-	color: rgb(92, 92, 92);
-	font-weight: bolder;
-	text-align: center;
-	margin-bottom: 50px;
+    font-size: 2rem;
+    color: rgb(92, 92, 92);
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .tours-grid {
-	display: grid;
-	gap: 25px;
-	justify-content: center;
-	grid-template-columns: repeat(5, minmax(100px, 250px));
+    display: grid;
+    gap: 25px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 150px);
 }
 
 .tour-grid-item img {
-	width: 100%;
-	height: 100%;
-	border-top-left-radius: 25px;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 25px;
+	opacity: 0.7;
 }
+
+.tour-grid-item img:hover {
+	opacity: 1;
+}
+
+.back {
+    display: grid;
+	place-items: center;
+	align-content: center;
+	margin-bottom: 50px;
+}
+
+.back-button {
+    border: none;
+    border-radius: 20px;
+    color: rgb(92, 92, 92);
+    background-color: #eefc2a;
+    font-weight: bolder;
+    padding: 12px 24px;
+	opacity: 0.5;
+}
+
+.back-button:hover {
+	opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+
+	.hero {
+		grid-template-columns: minmax(300px, 500px);		
+		justify-content: center;
+		gap: 10px;
+		align-content: center;
+		margin: 2px;
+	}
+	.hero-image {
+		display: none;
+	}
+
+	.info {
+		display: grid;
+	}
+
+	.info-title, .info-subtitle {
+		text-align: center;
+	}
+
+	.info-button {
+		place-self: center;
+		opacity: 1;
+	}
+
+	.dinosaurs-grid {
+		grid-template-columns: repeat(auto-fit, minmax(75px, 100px));
+	}
+
+	.dinosaurs-item {
+		opacity: 1;
+	}
+
+	.tours-grid {
+		gap: 10px;
+	}
+
+	.tour-grid-item img {
+		opacity: 1;
+	}
+
+	.back-button {
+		opacity: 1;
+	}
+}
+
